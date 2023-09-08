@@ -1,0 +1,177 @@
+
+
+
+@mixin darkMode ($value){
+    @if $value == dark{
+        background-color: black;
+        color: #fff;
+    }
+    @else{
+        background-color: #fff;
+        color: black;
+    }
+}
+@mixin style ($value){
+    border: none;
+    outline: none;
+    width: $value;
+    @content;
+
+}
+@mixin hover {
+    &:hover{
+        @content;
+    }
+}
+.icon {
+    i {
+        font-size: 25px;
+        padding: 30px;
+
+        &:hover {
+            background-color: $hover-color;
+            border-radius: 10px;
+        }
+    }
+
+}
+
+
+
+.item-body {
+    color: rgb(85, 104, 104);
+    text-transform: capitalize;
+}
+
+// h4 {
+//     font-size: 24px;
+//     font-weight: 500;
+//     line-height: 1.2;
+// }
+
+.line {
+    margin: 1rem 0;
+    color: inherit;
+    border: none;
+    border-top: 1px solid;
+    opacity: 0.25;
+}
+
+
+// universal
+
+
+#todo {
+    input {
+
+       @include style(32%){
+        font-size: 22px;
+
+       };
+        margin: 30px 0px;
+        color: black;
+    }
+
+    button {
+        @include style(null){
+            font-size: 20px;
+        };
+        background-color: transparent;
+        color: $hover-color;
+        padding: 5px;
+
+
+        &:hover {
+            background-color: $hover-color;
+            color: #fff;
+            border-radius: 10px;
+        }
+    }
+
+
+
+}
+
+
+
+/* task box section star here  */
+.gray {
+    color: rgb(174, 174, 174);
+}
+
+.task h3 {
+    display: inline;
+    padding: 3px 8px;
+    font-weight: 800;
+    color: rgb(95, 240, 191);
+}
+
+.result {
+    background-color: rgb(241 245 249);
+    padding: 10px;
+    width: 100%;
+
+}
+
+.title span {
+    font-size: 30px;
+}
+
+#border-line {
+    background-color: $warning;
+    width: 10px;
+    padding: 0;
+    margin: 0px 5px;
+    border-radius: 30px;
+}
+
+#action-btn button {
+    width: 20%;
+    border: none;
+}
+
+
+// page bar
+
+
+.pages {
+    a {
+        color: black;
+        padding: 10px;
+        text-decoration: none;
+
+        @include hover{
+            background-color: $hover-color;
+            color: rgb(251, 253, 255);
+            border-radius: 15px;
+
+        }
+    }
+
+}
+
+.sidebar {
+    text-align: center;
+    margin: auto;
+
+    img {
+        width: 150px;
+        margin-top: 100px;
+
+    }
+}
+
+// about
+.about {
+    text-align: center;
+
+    h2 {
+        font-weight: 900;
+        margin: 30px;
+    }
+}
+
+#body{
+   @include darkMode(light);
+
+}

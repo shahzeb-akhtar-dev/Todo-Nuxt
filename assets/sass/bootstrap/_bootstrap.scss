@@ -1,0 +1,172 @@
+// @use "../variabels/variabels";
+
+
+$display: (
+    flex,
+    inline,
+    inline-block,
+    hidden,
+    block
+);
+
+@each $i in $display {
+    .d-#{$i} {
+        display: $i  !important;
+    }
+}
+
+$color: (
+    primary:"#0d6efd",
+    secondary:"#626267",
+    danger:"red",
+    success:"#198754",
+    warning:$warning,
+
+);
+
+@each $name,
+$color in $color {
+
+    .btn-outline-#{$name} {
+        color: #{$color};
+
+        &:hover {
+            // color:inherit;
+            color: #fff;
+            background-color: #{$color};
+            transition: .5s;
+
+        }
+    }
+
+}
+
+
+
+@for $i from 1 to 13 {
+    .col-#{$i} {
+        // flex: 1 0 0%;
+        width: percentage(calc(1/12*$i)) !important;
+
+    }
+
+
+}
+
+$padding: 1;
+
+@while $padding <=5 {
+    .py-#{$padding} {
+        padding-top: $padding*5+px;
+        padding-bottom: $padding*5+px;
+    }
+
+    .px-#{$padding} {
+        padding-left: $padding*5+px;
+        padding-right: $padding*5+px;
+    }
+    .p-#{$padding}{
+      padding: $padding*5+px;
+    }
+
+    $padding: $padding+1
+}
+
+$margin: 1;
+
+@while $margin <=5 {
+    .mx-#{$margin} {
+        margin-left: $margin*5+px;
+        margin-right: $margin*5+px;
+    }
+
+    .my-#{$margin} {
+        margin-top: $margin*5+px;
+        margin-bottom: $margin*5+px;
+    }
+    .m-#{$margin}{
+      margin: $margin*5+px;
+    }
+
+    $margin: $margin+1
+}
+@for $w from 1 to 11 {
+  .w-percent-#{$w}{
+    min-width: percentage($w*0.1);
+  }
+}
+
+.row {
+
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    color: #2c3e50;
+
+}
+
+
+
+
+.row>* {
+
+    width: 100%;
+    max-width: 100%;
+}
+
+.text-warning {
+
+    color: $warning;
+}
+
+.btn {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    background-color: transparent;
+    width: 100%;
+
+}
+
+
+
+
+
+
+
+$text-align:(
+    center:center,
+    end:end,
+    start:start,
+);
+@each $name,$value in $text-align {
+
+    .text-#{$name}{
+        text-align: #{$value};
+    }
+}
+
+
+$h-size: (
+    1:2em,
+    2:1.5em,
+    3:1.17em,
+    4:1em,
+    5:0.83em,
+    6:0.67em,
+
+);
+
+@each $h,$size in $h-size {
+    h#{$h} {
+        font-size: $size;
+        font-weight: bold;
+        margin: 5px;
+    }
+
+
+
+}
